@@ -111,8 +111,8 @@ public class FragmentB extends Fragment{
         {
             e.printStackTrace();
         }
-        String[][] parsedData=http.jsonParserList(result);
-        monday[0].setText(result);
+        String[] result2=http.doJSONParser(result);
+        monday[0].setText(result2[2]);
         monday[0].setBackgroundColor(Color.LTGRAY);
 
         ajax.getTimeTable(s,new AjaxCallback<JSONArray>()
@@ -127,9 +127,41 @@ public class FragmentB extends Fragment{
                         //if(object.length()!=0)
                         //{
                             String test=object.getJSONObject(0).get("Course_Name").toString();
+                            String sta=object.getJSONObject(0).get("Start_Time").toString();
+                            String end=object.getJSONObject(0).get("End_Time").toString();
+                            int startt=Integer.parseInt(sta);
+                            int endt=Integer.parseInt(end);
+                            String Day=object.getJSONObject(0).get("Day").toString();
+                            if(Day.equals("Mon"))
+                            {
+                                monday[startt-8].setText(test);
+                                monday[startt-8].setBackgroundColor(Color.LTGRAY);
+                            }
+                            else if(Day.equals("Tue"))
+                            {
+                                tuesday[startt-8].setText(test);
+                                tuesday[startt-8].setBackgroundColor(Color.LTGRAY);
+                            }
+                            else if(Day.equals("Wed"))
+                            {
+                                wednesday[startt-8].setText(test);
+                                wednesday[startt-8].setBackgroundColor(Color.LTGRAY);
+                            }
+                            else if(Day.equals("Thu"))
+                            {
+                                thursday[startt-8].setText(test);
+                                thursday[startt-8].setBackgroundColor(Color.LTGRAY);
+
+                            }
+                            else if(Day.equals("Fri"))
+                            {
+                                friday[startt-8].setText(test);
+                                friday[startt-8].setBackgroundColor(Color.LTGRAY);
+                            }
+
                             //String test=object.get("Course_Name").toString();
-                            monday[0].setText(test);
-                            monday[0].setBackgroundColor(Color.LTGRAY);
+                            //monday[0].setText(test);
+                            //monday[0].setBackgroundColor(Color.LTGRAY);
 
                         //}
                         //else

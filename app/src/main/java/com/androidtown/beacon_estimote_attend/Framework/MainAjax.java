@@ -17,6 +17,8 @@ import java.util.HashMap;
 public class MainAjax extends AjaxAdapter{
 
     private String TimeTable_info="/JSPAndroid/TimeTable.jsp";
+    private String LoginCheck_info="/JSPAndroid/LoginCheck.jsp";
+
 
     public MainAjax()
     {}
@@ -31,6 +33,15 @@ public class MainAjax extends AjaxAdapter{
         aq.ajax(httpUrl(TimeTable_info),map, JSONArray.class,callback);
         
     }
+    public void loginCheck(String Name,String Password,AjaxCallback callback)
+    {
+        HashMap<String,Object> map=new HashMap<>();
 
+        map.put("Name",Name);
+        map.put("Password",Password);
+
+        aq.ajax(httpUrl(LoginCheck_info),map,JSONArray.class,callback);
+
+    }
 
 }

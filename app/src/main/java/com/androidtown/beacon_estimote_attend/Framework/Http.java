@@ -2,7 +2,6 @@ package com.androidtown.beacon_estimote_attend.Framework;
 
 import android.app.Activity;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -27,32 +26,26 @@ public class Http extends Activity {
         super();
     }
 
-    public String[][] jsonParserList(String pRecvServerPage) {
-
-
-        // Log.i("서버에서 받은 전체 내용",pRecvServerPage);
-        try {
-            JSONObject json = new JSONObject(pRecvServerPage);
-            JSONArray jarr = json.getJSONArray("List");
-
-            String[] jsonName = {"msg1", "msg2", "msg3"};
-            String[][] parseredData = new String[jarr.length()][jsonName.length];
-
-            for (int i = 0; i < jarr.length(); i++) {
-                json = jarr.getJSONObject(i);
-                for (int j = 0; j < jsonName.length; j++) {
-                    parseredData[i][j] = json.getString(jsonName[j]);
-                }
+    public String[] doJSONParser(String json)
+    {
+        String[] jsona=new String[3];
+        try
+        {
+            JSONArray jarray=new JSONArray(json);
+            for(int i=0;i<jarray.length();i++)
+            {
+                JSONObject jobject=jarray.getJSONObject(i);
+                jsona[0]=jobject.getString("Course_Name");
+                jsona[1]=jobject.getString("Hakjum");
+                //jsona[2]=jobject.getString("Course_Time");
             }
-            for (int i = 0; i < parseredData.length; i++) {
-                Log.i("JSON을 분석한 데이터" + i + ":", parseredData[i][0]);
-            }
-            return parseredData;
-        } catch (JSONException e) {
+        }catch(JSONException e)
+        {
             e.printStackTrace();
-            return null;
         }
+    return jsona;
     }
+
 
 
     public class MyAsyncTask extends AsyncTask<String, Void, String> {
