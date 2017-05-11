@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">서경대학교</string>
+    <string name="http_url">http://192.168.56.1:8080/WebContent</string>
+</resources>
