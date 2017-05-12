@@ -32,19 +32,110 @@
         android:id="@+id/Okcheckbtn"
 
         android:onClick="selectFragment"
-        android:layout_marginTop="13dp"
-        android:layout_width="200dp"
+        android:layout_width="190dp"
+        android:layout_height="180dp"
         android:layout_below="@+id/textView3"
-        android:layout_alignParentEnd="true"
-        android:layout_height="200dp" />
+        android:layout_alignParentEnd="true" />
 
-    <ImageView
-        app:srcCompat="@drawable/choolsukreal"
-        android:id="@+id/imageView4"
-        android:layout_width="100dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginBottom="20dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView3" />
+        android:orientation="horizontal"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/Okcheckbtn"
+        android:layout_alignParentStart="true">
+
+
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/jigak2"
+            android:id="@+id/Jigakimg"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="11dp" />
+        <TextView
+            android:id="@+id/JigakTx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/Jigakimg"
+            android:layout_alignTop="@+id/Jigakimg"
+            android:layout_alignRight="@+id/Jigakimg"
+            android:layout_alignBottom="@+id/Jigakimg"
+            android:layout_margin="1dp"
+            android:gravity="center"
+
+            android:text="테스트"
+            />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/jotae2"
+            android:id="@+id/jotaeimg"
+            android:layout_alignTop="@+id/Jigakimg"
+            android:layout_toStartOf="@+id/Jigakimg" />
+        <TextView
+            android:id="@+id/jotaetx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/jotaeimg"
+            android:layout_alignTop="@+id/jotaeimg"
+            android:layout_alignRight="@+id/jotaeimg"
+            android:layout_alignBottom="@+id/jotaeimg"
+            android:layout_margin="1dp"
+            android:gravity="center"
+
+            android:text="테스트"
+            />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/gyulsuk2"
+            android:id="@+id/gyulsukimg"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/jotaeimg" />
+
+        <TextView
+            android:id="@+id/gyulsuktx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/gyulsukimg"
+            android:layout_alignTop="@+id/gyulsukimg"
+            android:layout_alignRight="@+id/gyulsukimg"
+            android:layout_alignBottom="@+id/gyulsukimg"
+            android:layout_margin="1dp"
+            android:gravity="center"
+
+            android:text="테스트"
+
+            />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/choolsuk2"
+            android:id="@+id/Choolsukimg"
+
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/gyulsukimg" />
+        <TextView
+            android:id="@+id/ChoolsukTx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/Choolsukimg"
+            android:layout_alignTop="@+id/Choolsukimg"
+            android:layout_alignRight="@+id/Choolsukimg"
+            android:layout_alignBottom="@+id/Choolsukimg"
+            android:layout_margin="1dp"
+            android:gravity="center"
+
+            android:text="테스트"
+            android:textColor="@color/colorPrimaryDark"
+            />
+
+    </RelativeLayout>
+
 
 </RelativeLayout>

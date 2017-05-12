@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.androidtown.beacon_estimote_attend.Fragment.FragmentA;
 import com.androidtown.beacon_estimote_attend.Fragment.FragmentB;
+import com.androidtown.beacon_estimote_attend.Fragment.FragmentC;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.fragmentbutton2:
                 fr=new FragmentB();
+                break;
+            case R.id.fragmentbutton3:
+                fr=new FragmentC();
                 break;
             case R.id.Okcheckbtn:
                 fr=new FragmentB();

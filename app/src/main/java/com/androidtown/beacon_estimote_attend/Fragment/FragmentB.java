@@ -1,6 +1,7 @@
 package com.androidtown.beacon_estimote_attend.Fragment;
 
 import android.app.Fragment;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,8 @@ import com.androidtown.beacon_estimote_attend.R;
 
 import org.json.JSONArray;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * Created by kwonhyucknae on 2017-05-07.
  */
@@ -31,6 +34,7 @@ public class FragmentB extends Fragment{
     private TextView friday[]=new TextView[10];
     private static String sLog="Time_Table";
 
+    //private Context mContext=null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,10 +46,19 @@ public class FragmentB extends Fragment{
     public void onActivityCreated(Bundle b)
     {
 
+
+//SharedPreference 가져오는방법
+//SharedPreferences prefs=getSharedPreferences("PrefName",MODE_PRIVATE);
+//strid=prefs.getString("id","");
+//strpw=prefs.getString("pw","");
+
         Http http=new Http(this.getActivity());
         HttpAsync httpas=new HttpAsync(this.getActivity());
         MainAjax ajax=new MainAjax(this.getActivity());
-        String s="khn";
+        //String s="khn";
+        SharedPreferences prefs = this.getActivity().getSharedPreferences("Login",MODE_PRIVATE);
+        String strid=prefs.getString("id","");
+
         super.onActivityCreated(b);
 
         monday[0]=(TextView)getView().findViewById(R.id.monday0);
@@ -117,7 +130,7 @@ public class FragmentB extends Fragment{
 
 
 
-        ajax.getTimeTable(s,new AjaxCallback<JSONArray>()
+        ajax.getTimeTable(strid,new AjaxCallback<JSONArray>()
         {
             @Override
             public void callback(String url, JSONArray object, AjaxStatus status)

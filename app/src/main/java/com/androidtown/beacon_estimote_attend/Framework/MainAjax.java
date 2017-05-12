@@ -18,6 +18,7 @@ public class MainAjax extends AjaxAdapter{
 
     private String TimeTable_info="/JSPAndroid/TimeTable.jsp";
     private String LoginCheck_info="/JSPAndroid/LoginCheck.jsp";
+    private String ListView_info="/JSPAndroid/ListView.jsp";
 
 
     public MainAjax()
@@ -44,4 +45,12 @@ public class MainAjax extends AjaxAdapter{
 
     }
 
+    public void getListView(String Name,AjaxCallback callback)
+    {
+        HashMap<String,Object> map=new HashMap<>();
+        map.put("Name",Name);
+
+        aq.ajax(httpUrl(ListView_info),map,JSONArray.class,callback);
+
+    }
 }

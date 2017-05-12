@@ -29,7 +29,7 @@ public class HttpAsync extends AsyncTask<String, Void, String> {
 
             DefaultHttpClient client = new DefaultHttpClient(); //HttpClient 통신을 합니다.
 
-            String postURL = "http://192.168.56.1:8080/WebPageTest/JSPAndroid/TimeTable.jsp";
+            String postURL = "http://61.84.147.108:8080/WebPageTest/JSPAndroid/TimeTable.jsp";
             HttpPost post = new HttpPost(postURL + "?Course_Name=bigdata");
 
             HttpResponse response = client.execute(post);

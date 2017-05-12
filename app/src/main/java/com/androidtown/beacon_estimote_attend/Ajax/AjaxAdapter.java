@@ -24,11 +24,11 @@ public class AjaxAdapter {
 
     protected String httpUrl()
     {
-     return "http://192.168.56.1:8080/WebPageTest";
+     return "http://61.84.147.108:8080/WebPageTest";
     }
 
     protected String httpUrl(String path){
 
-        return "http://192.168.56.1:8080/WebPageTest"+path;
+        return "http://61.84.147.108:8080/WebPageTest"+path;
     }
 }

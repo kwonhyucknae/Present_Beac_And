@@ -43,6 +43,7 @@
             android:layout_weight="1"
             android:onClick="selectFragment"
 
+            android:text="third"
            />
     </LinearLayout>
 
@@ -51,9 +52,10 @@
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal"
+        android:layout_height="430dp"
+        android:layout_above="@+id/linearLayout"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/linearLayout2"
-        android:layout_height="410dp">
+        android:layout_marginBottom="16dp">
     </LinearLayout>
 
 </RelativeLayout>

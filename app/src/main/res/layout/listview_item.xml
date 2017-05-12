@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="4">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/textView1"
+            android:textSize="24dp"
+            android:textColor="#000000"
+            android:gravity="center_vertical"
+            android:layout_weight="2" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_below="@+id/Okcheckbtn"
+            android:layout_alignParentStart="true">
+
+
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/jigak2"
+                android:id="@+id/Jigakimg"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="11dp" />
+            <TextView
+                android:id="@+id/ListJigakTx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/Jigakimg"
+                android:layout_alignTop="@+id/Jigakimg"
+                android:layout_alignRight="@+id/Jigakimg"
+                android:layout_alignBottom="@+id/Jigakimg"
+                android:layout_margin="1dp"
+                android:gravity="center"
+
+                android:text="테스트"
+                />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/jotae2"
+                android:id="@+id/jotaeimg"
+                android:layout_alignTop="@+id/Jigakimg"
+                android:layout_toStartOf="@+id/Jigakimg" />
+            <TextView
+                android:id="@+id/Listjotaetx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/jotaeimg"
+                android:layout_alignTop="@+id/jotaeimg"
+                android:layout_alignRight="@+id/jotaeimg"
+                android:layout_alignBottom="@+id/jotaeimg"
+                android:layout_margin="1dp"
+                android:gravity="center"
+
+                android:text="테스트"
+                />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/gyulsuk2"
+                android:id="@+id/gyulsukimg"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/jotaeimg" />
+
+            <TextView
+                android:id="@+id/Listgyulsuktx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gyulsukimg"
+                android:layout_alignTop="@+id/gyulsukimg"
+                android:layout_alignRight="@+id/gyulsukimg"
+                android:layout_alignBottom="@+id/gyulsukimg"
+                android:layout_margin="1dp"
+                android:gravity="center"
+
+                android:text="테스트"
+
+                />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/choolsuk2"
+                android:id="@+id/Choolsukimg"
+
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/gyulsukimg" />
+            <TextView
+                android:id="@+id/ListChoolsukTx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/Choolsukimg"
+                android:layout_alignTop="@+id/Choolsukimg"
+                android:layout_alignRight="@+id/Choolsukimg"
+                android:layout_alignBottom="@+id/Choolsukimg"
+                android:layout_margin="1dp"
+                android:gravity="center"
+
+                android:text="테스트"
+                android:textColor="@color/colorPrimaryDark"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
