@@ -27,12 +27,18 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class FragmentB extends Fragment{
 
-    private TextView monday[]=new TextView[10];
+
+    public TextView monday[]=new TextView[10];
     private TextView tuesday[]=new TextView[10];
     private TextView wednesday[]=new TextView[10];
     private TextView thursday[]=new TextView[10];
     private TextView friday[]=new TextView[10];
     private static String sLog="Time_Table";
+
+    public FragmentB() {
+
+    }
+
 
     //private Context mContext=null;
 
