@@ -65,7 +65,7 @@ public class Login extends Activity {
                 ajax.loginCheck(IDet.getText().toString(), Pwet.getText().toString(), new AjaxCallback<JSONArray>() {
                     @Override
                     public void callback(String url, JSONArray object, AjaxStatus status) {
-                        if (object != null) {
+                        if (object != null && object.length()!=0) {
                             try {
                                     ID = object.getJSONObject(0).get("Name").toString();
                                     PW = object.getJSONObject(0).get("Password").toString();
@@ -94,13 +94,42 @@ public class Login extends Activity {
                             }
 
                         } else {
+                            if(ID==null)
+                            {
+                                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                                        context);
+
+                                // 제목셋팅
+                                alertDialogBuilder.setTitle("알림");
+
+                                // AlertDialog 셋팅
+                                alertDialogBuilder
+                                        .setMessage("아이디 또는 비밀번호가 틀렸습니다.")
+                                        .setCancelable(false)
+                                        .setNegativeButton("확인",
+                                                new DialogInterface.OnClickListener() {
+                                                    public void onClick(
+                                                            DialogInterface dialog, int id) {
+                                                        // 다이얼로그를 취소한다
+                                                        dialog.cancel();
+                                                    }
+                                                });
+
+                                // 다이얼로그 생성
+                                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                                // 다이얼로그 보여주기
+                                alertDialog.show();
+
+                            }
+
                         }
 
                     }
                 });
 
                 //Intent inte=new Intent(Login.this,MainActivity.class);
-
+/*
                 if(ID==null)
                 {
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
@@ -129,7 +158,7 @@ public class Login extends Activity {
                     alertDialog.show();
 
                 }
-
+*/
 
             }
         });

@@ -24,11 +24,11 @@ public class MainAjax extends AjaxAdapter{
     {}
     public MainAjax(Activity activity){super(activity);}
 
-    public void getTimeTable(String Course_Name,AjaxCallback callback)
+    public void getTimeTable(String Name,AjaxCallback callback)
     {
         HashMap<String,Object> map=new HashMap<>();
 
-        map.put("Course_Name",Course_Name);
+        map.put("Name",Name);
 
         aq.ajax(httpUrl(TimeTable_info),map, JSONArray.class,callback);
         
