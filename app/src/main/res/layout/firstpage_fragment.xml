@@ -137,5 +137,13 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/NowCourseTx"
+        android:layout_alignStart="@+id/NowCourseTx"
+        android:id="@+id/bctest" />
+
 
 </RelativeLayout>
