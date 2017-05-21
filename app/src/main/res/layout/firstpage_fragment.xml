@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/check"
         android:id="@+id/Okcheckbtn"
 
-        android:onClick="checkBtnActive"
+
         android:layout_width="190dp"
         android:layout_height="180dp"
         android:layout_below="@+id/NowCourseTx"
