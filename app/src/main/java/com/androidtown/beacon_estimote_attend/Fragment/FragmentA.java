@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.androidquery.callback.AjaxCallback;
@@ -43,7 +44,7 @@ public class FragmentA extends Fragment{
     private Region region;
 
     private TextView bcte;
-
+    public boolean isConnected=false;
     public String Yoil;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -55,7 +56,7 @@ public class FragmentA extends Fragment{
     {
         super.onActivityCreated(b);
         MainAjax ajax=new MainAjax(this.getActivity());
-
+        final ImageView okbtn=(ImageView)getView().findViewById(R.id.Okcheckbtn);
         SharedPreferences prefs = this.getActivity().getSharedPreferences("Login",MODE_PRIVATE);
         String strid=prefs.getString("id","");
 
@@ -71,6 +72,21 @@ public class FragmentA extends Fragment{
                     Beacon nearestBeacon=list.get(0);
                     Log.d("Airport","Nearest places: "+nearestBeacon.getRssi());
                     bcte.setText(nearestBeacon.getRssi()+"");
+                    if( !isConnected && nearestBeacon.getRssi() > -70) {   //비콘과의 통신이 가능할때
+                        okbtn.setImageResource(R.drawable.beforecheck);
+                        okbtn.setEnabled(true);
+                        isConnected=true;
+
+                    }
+                    else if( isConnected && nearestBeacon.getRssi() < -70 )  // 비콘에서 멀어졌을때
+                    {
+                        okbtn.setImageResource(R.drawable.gogot1real);
+                        okbtn.setEnabled(false);
+                        isConnected=false;
+
+                    }
+
+
                 }
             }
         });
@@ -159,6 +175,7 @@ public class FragmentA extends Fragment{
                             if (Day.equals(Yoil)) {
                                 if(strCurHour.equals(sta)||strCurHour.equals(end))
                                 {
+
                                     nowcourse.setText(test);
                                 }
                                 else

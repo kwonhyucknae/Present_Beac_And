@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.androidtown.beacon_estimote_attend.Fragment.FragmentA;
 import com.androidtown.beacon_estimote_attend.Fragment.FragmentB;
@@ -58,5 +59,10 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+    public void checkBtnActive(View view)
+    {
+        ImageView okbtn=(ImageView)findViewById(R.id.Okcheckbtn);
 
+        okbtn.setImageResource(R.drawable.choolsuk);
+    }
 }

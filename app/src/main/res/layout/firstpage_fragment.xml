@@ -15,23 +15,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:text="없음"
-        android:layout_width="100dp"
-        android:id="@+id/NowCourseTx"
-        android:layout_height="50dp"
-        tools:text="없음"
-        android:textSize="30sp"
-        android:textStyle="normal|bold"
-        android:layout_marginEnd="24dp"
-        android:layout_below="@+id/imageView2"
-        android:layout_alignEnd="@+id/imageView2" />
-
     <ImageView
         app:srcCompat="@drawable/check"
         android:id="@+id/Okcheckbtn"
 
-        android:onClick="selectFragment"
+        android:onClick="checkBtnActive"
         android:layout_width="190dp"
         android:layout_height="180dp"
         android:layout_below="@+id/NowCourseTx"
@@ -144,6 +132,18 @@
         android:layout_below="@+id/NowCourseTx"
         android:layout_alignStart="@+id/NowCourseTx"
         android:id="@+id/bctest" />
+
+    <TextView
+        android:text="bigdata"
+        android:layout_width="150dp"
+        android:id="@+id/NowCourseTx"
+        android:layout_height="50dp"
+        tools:text="bigdata"
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="24dp" />
 
 
 </RelativeLayout>

@@ -25,7 +25,7 @@
             android:layout_weight="1"
             android:onClick="selectFragment"
 
-            android:text="first" />
+            android:text="출석" />
 
         <Button
             android:id="@+id/fragmentbutton2"
@@ -34,7 +34,7 @@
             android:layout_weight="1"
             android:onClick="selectFragment"
 
-            android:text="second" />
+            android:text="시간표" />
 
         <Button
             android:id="@+id/fragmentbutton3"
@@ -43,7 +43,7 @@
             android:layout_weight="1"
             android:onClick="selectFragment"
 
-            android:text="third"
+            android:text="출결확인"
            />
     </LinearLayout>
 
