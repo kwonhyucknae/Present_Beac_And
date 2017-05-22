@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.AjaxStatus;
-import com.androidtown.beacon_estimote_attend.Framework.Http;
-import com.androidtown.beacon_estimote_attend.Framework.HttpAsync;
 import com.androidtown.beacon_estimote_attend.Framework.MainAjax;
 import com.androidtown.beacon_estimote_attend.R;
 
@@ -58,8 +56,8 @@ public class FragmentB extends Fragment{
 //strid=prefs.getString("id","");
 //strpw=prefs.getString("pw","");
 
-        Http http=new Http(this.getActivity());
-        HttpAsync httpas=new HttpAsync(this.getActivity());
+        //Http http=new Http(this.getActivity());
+        //HttpAsync httpas=new HttpAsync(this.getActivity());
         MainAjax ajax=new MainAjax(this.getActivity());
         //String s="khn";
         SharedPreferences prefs = this.getActivity().getSharedPreferences("Login",MODE_PRIVATE);
@@ -122,6 +120,9 @@ public class FragmentB extends Fragment{
         friday[8]=(TextView)getView().findViewById(R.id.friday8);
         friday[9]=(TextView)getView().findViewById(R.id.friday9);
 
+
+
+        /*      Http로 통신 하는법
         String result=null;
        // Http.MyAsyncTask.execute(result).get();
         try {
@@ -134,7 +135,7 @@ public class FragmentB extends Fragment{
         monday[0].setText(result2[2]);
         monday[0].setBackgroundColor(Color.LTGRAY);
 
-
+        */
 
         ajax.getTimeTable(strid,new AjaxCallback<JSONArray>()
         {

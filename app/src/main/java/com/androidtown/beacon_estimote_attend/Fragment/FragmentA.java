@@ -51,15 +51,20 @@ public class FragmentA extends Fragment{
 
 
     public String nowLecture=null;
+    public String nowSta;
     public String nowEnd;
     public String sta;
     public String end;
     public String test;
     public String strCurHour;
     public boolean OKcheck=false;
+    public boolean Beaconnear=false;
 
     public int nowtime=0;
+    public int stime=0;
     public int etime=0;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -72,6 +77,7 @@ public class FragmentA extends Fragment{
         super.onActivityCreated(b);
         MainAjax ajax=new MainAjax(this.getActivity());
         final ImageView okbtn=(ImageView)getView().findViewById(R.id.Okcheckbtn);
+        TextView nowCourse=(TextView)getView().findViewById(R.id.NowCourseTx);
         SharedPreferences prefs = this.getActivity().getSharedPreferences("Login",MODE_PRIVATE);
         String strid=prefs.getString("id","");
 
@@ -158,8 +164,6 @@ public class FragmentA extends Fragment{
                             int startt = Integer.parseInt(sta);
                             int endt = Integer.parseInt(end);
 
-                            nowtime=Integer.parseInt(strCurHour);         //출석체크 확인 유지를 해제해줌
-                            etime=Integer.parseInt(nowEnd);
 
                             String Day = object.getJSONObject(i).get("Day").toString();
                             if (Day.equals(Yoil)) {
@@ -167,16 +171,22 @@ public class FragmentA extends Fragment{
                                 {
                                     LectureCheck[Lecturenum]=true;                 //LectureChect 가 true 라면 현재 시간에 강의가 있다는 뜻
                                     nowLecture=test;
+                                    nowSta=sta;
                                     nowEnd=end;
                                     nowcourse.setText(test);
                                 }
                                 else
                                 {
                                     LectureCheck[Lecturenum]=false;
+
                                 }
                             }
                             Lecturenum++;
                         }
+                        nowtime=Integer.parseInt(strCurHour);         //출석체크 확인 유지를 해제해줌
+                        stime=Integer.parseInt(nowSta);
+                        etime=Integer.parseInt(nowEnd);
+
                         Lecturenum=0;
                     }catch (Exception e)
                     {
@@ -192,28 +202,36 @@ public class FragmentA extends Fragment{
             }
         });
 
+
         beaconManager.setRangingListener(new BeaconManager.RangingListener() {
             @Override
             public void onBeaconsDiscovered(Region region, List<Beacon> list) {
+                TextView nowCourse=(TextView)getView().findViewById(R.id.NowCourseTx);
+
                 if(!list.isEmpty())
                 {
                     Beacon nearestBeacon=list.get(0);
                     Log.d("Airport","Nearest places: "+nearestBeacon.getRssi());
                     bcte.setText(nearestBeacon.getRssi()+"");
-                    if( !isConnected && nearestBeacon.getRssi() > -70 ) {   //비콘과의 통신이 가능할때 , 현재 강의가 있을때 &&now
+                    if( !isConnected && nearestBeacon.getRssi() > -70 && nowLecture!=null) {   //비콘과의 통신이 가능할때 , 현재 강의가 있을때 &&now
                         okbtn.setImageResource(R.drawable.beforecheck);
                         okbtn.setEnabled(true);
                         isConnected=true;
-
+                        Beaconnear=true;
                     }
-                    else if( isConnected && nearestBeacon.getRssi() < -70 )  // 비콘에서 멀어졌을때
+                    else if( isConnected && nearestBeacon.getRssi() < -70 && nowLecture!=null)  // 비콘에서 멀어졌을때
                     {
                         okbtn.setImageResource(R.drawable.gogot1real);
                         okbtn.setEnabled(false);
                         isConnected=false;
 
                     }
-
+                    else if(nowLecture==null)
+                    {
+                        okbtn.setImageResource(R.drawable.rhdrkdreal);
+                        okbtn.setEnabled(false);
+                        nowCourse.setText("없음");
+                    }
 
                 }
             }
@@ -224,13 +242,27 @@ public class FragmentA extends Fragment{
 
         if(nowtime>etime)
         {
-            OKcheck=false;
-
+            OKcheck=false;                                                  //OKcheck 는 현재 강의 하고 있는게 있나 확인
+            okbtn.setImageResource(R.drawable.rhdrkdreal);
+            nowCourse.setText("없음");
+            Beaconnear=false;
         }
+        else if(nowtime==etime || nowtime ==stime)
+        {
+            OKcheck=true;
+            if(Beaconnear==false)
+            {
+                okbtn.setImageResource(R.drawable.gogot1real);
+            }
+            nowCourse.setText(nowLecture);
+        }
+
+
+
         okbtn.setOnClickListener(new View.OnClickListener()                  //활성화 된 ok버튼을 클릭했을때 이벤트
         {
             public void onClick(View v) {
-                if(OKcheck==false)
+                if(OKcheck==true)
                 {
                     okbtn.setImageResource(R.drawable.check);
                 }

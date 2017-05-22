@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <ImageView
-        android:layout_width="306dp"
-        android:layout_height="221dp"
-        app:srcCompat="@drawable/skulogo2"
-        android:id="@+id/imageView"
-        android:layout_marginTop="60dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -21,7 +13,7 @@
         android:ems="10"
         android:layout_marginTop="32dp"
         android:id="@+id/idinput"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/logo"
         android:layout_centerHorizontal="true" />
 
     <EditText
@@ -42,5 +34,17 @@
         android:layout_alignStart="@+id/pwinput"
         android:id="@+id/loginokbtn"
         android:layout_alignEnd="@+id/pwinput" />
+
+    <ImageView
+        app:srcCompat="@drawable/skulogo2"
+        android:id="@+id/logo"
+        android:layout_marginTop="65dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:visibility="visible"
+        tools:ignore="ContentDescription" />
+
 
 </RelativeLayout>
